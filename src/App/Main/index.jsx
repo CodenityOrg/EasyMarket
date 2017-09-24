@@ -1,11 +1,11 @@
-import { Switch } from "react-router-dom";
+import { Switch, Route } from "react-router-dom";
+import React from "react";
+import Home from "../../Components/Home/index.jsx";
 
 const Main = () => (
     <main>
       <Switch>
         <Route exact path='/' component={Home}/>
-        <Route path='/roster' component={Roster}/>
-        <Route path='/schedule' component={Schedule}/>
       </Switch>
     </main>
 );
