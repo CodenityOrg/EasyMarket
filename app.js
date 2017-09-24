@@ -4,11 +4,22 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var mongoose = require('mongoose');
+var graphqlHTTP = require('express-graphql')
 
 var index = require('./routes/index');
 var users = require('./routes/users');
 
 var app = express();
+
+mongoose.connect('mongodb://localhost:27017/EasyMarket');
+
+var db = mongoose.connection;
+
+db.on('error', ()=> {console.log( '---FAILED to connect to mongoose')})
+db.once('open', () => {
+ console.log( '+++Connected to mongoose')
+})
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -31,6 +42,27 @@ app.use(function(req, res, next) {
   err.status = 404;
   next(err);
 });
+
+app.use('/graphql', graphqlHTTP (req => ({
+ schema,
+ graphiql:true
+})))
+
+
+app.post('/quotes',(req,res)=>{
+   // Insert into TodoList Collection
+   var todoItem = new ToDo({
+    itemId:1,
+    item:req.body.item,
+    completed: false
+   })
+  todoItem.save((err,result)=> {
+    if (err) {console.log("---TodoItem save failed " + err)}
+      console.log("+++TodoItem saved successfully "+todoItem.item)
+      res.redirect('/')
+   })
+})
+
 
 // error handler
 app.use(function(err, req, res, next) {
