@@ -3,11 +3,10 @@ const router = express.Router();
 
 const userController = require('../controllers/userController');
 
-/*router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
-});*/
 
 router.route('/')
-	.get(userController.index)
+  .get(userController.index);
 
-module.exports = router;
+router.route('/login')  
+  .post(userController.SigIn);
+module.exports = router

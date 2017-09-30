@@ -1,26 +1,35 @@
 const User = require('../models/user');
 
-
-module.exports.index =  function(req,res){
+module.exports.index =  (req,res) => {
 	res.render('index',{title:"JULIO"})
 }
 
-module.exports.create = function(res,res){
+module.exports.SigIn = (req,res) => {
+    User.findOne({ 
+        email:req.body.email,
+        password:req.body.password 
+    },(err,user) => {
+        if (err) throw err;
+        res.send(user);
+        console.log("USER CREATE",user);
+        
+      });
+}
 
+module.exports.create = (req,res) => {
     User.create({
-
         email:req.body.email,
         facebookId:req.body.facebookId,
-        name:req.body.username,
+        password:req.body.password,
+        name:req.body.name,
         lastname:req.body.lastname,
         city:req.body.city,
         cellphone:req.body.cellphone,
         createdAt:req.body.createdAt
-
-    },function (err, user) {
-
-        if(err) handleError(err);
-
+    }, (err, user) => {
+        if(err) throw err;
+        console.log("USER CREATE",user);
+        res.send(user);        
     });
 
 
