@@ -10,14 +10,21 @@ const {
 
 
 const ToDoMongo = require('../../mongoose/todo');
-
-export function getProjection (fieldASTs) {
+const User = require('../../mongoose/user');
+var exports = module.exports={};
+module.exports.getProjection =function getProjection(fieldASTs) {
   return fieldASTs.fieldNodes[0].selectionSet.selections.reduce((projections, selection) => {
     projections[selection.name.value] = true;
     return projections;
   }, {});
 }
 
+function getProjection(fieldASTs) {
+  return fieldASTs.fieldNodes[0].selectionSet.selections.reduce((projections, selection) => {
+    projections[selection.name.value] = true;
+    return projections;
+  }, {});
+}
 
 
 var todoType = new GraphQLObjectType({
@@ -31,6 +38,42 @@ var todoType = new GraphQLObjectType({
     item: {
       type: GraphQLString,
       description: 'The name of the todo.',
+    },
+    category: {
+      type: GraphQLString,
+      description: 'The category of the todo.',
+    },
+    completed: {
+      type: GraphQLBoolean,
+      description: 'Completed todo? '
+    }
+  })
+});
+
+var userType = new GraphQLObjectType({
+  name: 'user',
+  description: 'user item',
+  fields: () => ({
+    userId: {
+      type: (GraphQLInt),
+      description: 'The id of the user.',
+    },
+    name: {
+      type: GraphQLString,
+      description: 'The name of the user.',
+    },
+    age: {
+      type: GraphQLInt,
+      description: 'The age of the user.',
+    },
+    friends: {
+      type: new GraphQlList(userType),
+      resolve:(user) =>{
+        return User.find({
+          _id:{$in: user.friends.map((id) => id.toString())
+          }
+        });
+      }
     },
     completed: {
       type: GraphQLBoolean,
@@ -60,7 +103,7 @@ var schema = new GraphQLSchema({
               })
           })
 
-          return foundItems
+          return foundItems;
         }
       }
     }
@@ -68,4 +111,4 @@ var schema = new GraphQLSchema({
 
 });
 
-export default schema;
+exports.schema = schema;

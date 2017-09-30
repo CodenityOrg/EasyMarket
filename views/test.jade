@@ -1,0 +1,23 @@
+doctype html
+html(lang='en')
+  head
+    title Jade
+    script(type='text/javascript').
+      foo = true;
+      bar = function () {};
+      if (foo) {
+      bar(1 + 5)
+      }
+  body
+    h2 This is just a normal POST
+    div Enter a new item in the text box and hit Submit to save it to the database
+    form(action='/quotes', method='POST')
+      input(type='text', placeholder='id', name='id')
+      input(type='text', placeholder='item', name='item')
+      input(type='text', placeholder='category', name='category')
+      button(type='submit') Submit
+    hr
+    h2 GraphQL Test
+    hr
+    div
+      a(href='/graphql?query={todo(itemId:1){itemId,item}}') GraphQL Test

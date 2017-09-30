@@ -5,7 +5,8 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
-var graphqlHTTP = require('express-graphql')
+var graphqlHTTP = require('express-graphql');
+var schema = require('./graphql/Schema/Schema').schema;
 
 var index = require('./routes/index');
 var users = require('./routes/users');
@@ -36,6 +37,10 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', index);
 app.use('/users', users);
 
+app.use('/graphql', graphqlHTTP (req => ({
+  schema,
+  graphiql:true
+})))
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   var err = new Error('Not Found');
@@ -43,25 +48,6 @@ app.use(function(req, res, next) {
   next(err);
 });
 
-app.use('/graphql', graphqlHTTP (req => ({
- schema,
- graphiql:true
-})))
-
-
-app.post('/quotes',(req,res)=>{
-   // Insert into TodoList Collection
-   var todoItem = new ToDo({
-    itemId:1,
-    item:req.body.item,
-    completed: false
-   })
-  todoItem.save((err,result)=> {
-    if (err) {console.log("---TodoItem save failed " + err)}
-      console.log("+++TodoItem saved successfully "+todoItem.item)
-      res.redirect('/')
-   })
-})
 
 
 // error handler
