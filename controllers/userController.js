@@ -11,8 +11,6 @@ module.exports.SigIn = (req,res) => {
     },(err,user) => {
         if (err) throw err;
         res.send(user);
-        console.log("USER CREATE",user);
-        
       });
 }
 
@@ -28,7 +26,6 @@ module.exports.create = (req,res) => {
         createdAt:req.body.createdAt
     }, (err, user) => {
         if(err) throw err;
-        console.log("USER CREATE",user);
         res.send(user);        
     });
 

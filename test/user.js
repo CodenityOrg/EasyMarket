@@ -22,7 +22,7 @@ describe('User',()=>{
     })
 
     describe(' ',()=>{
-        it('it should CREATE new user', (done)=>{
+        it("it should CREATE new user", (done)=>{
             const user =  {
                 name :'user',
                 lastname:'1',
@@ -44,7 +44,7 @@ describe('User',()=>{
                     done();
                 });
         });
-        it('it should LOGIN with a existing user',(done)=>{
+        it("it should LOGIN with a existing user",(done)=>{
             const user = new User({
                 name :'user',
                 lastname:'1',
