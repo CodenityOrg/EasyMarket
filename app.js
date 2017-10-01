@@ -6,14 +6,17 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
 var graphqlHTTP = require('express-graphql');
-var schema = require('./graphql/Schema/Schema').schema;
+var schemas = require('./graphql/schema');
 
 var index = require('./routes/index');
 var users = require('./routes/users');
 
 var app = express();
 
+mongoose.Promise = global.Promise;
+
 mongoose.connect('mongodb://localhost:27017/EasyMarket');
+
 
 var db = mongoose.connection;
 
@@ -38,7 +41,8 @@ app.use('/', index);
 app.use('/users', users);
 
 app.use('/graphql', graphqlHTTP (req => ({
-  schema,
+  schema:schemas,
+  rootValue:global,
   graphiql:true
 })))
 // catch 404 and forward to error handler
