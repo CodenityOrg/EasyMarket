@@ -9,19 +9,19 @@ const {
   GraphQLBoolean
 } = require("graphql/type");
 
-const Product = require('../models/product');
-const Market = require('../models/market');
-const Photo = require('../models/photo');
-const Atribute = require('../models/atribute');
+const Product = require("../models/product");
+const Market = require("../models/market");
+const Photo = require("../models/photo");
+const Atribute = require("../models/atribute");
 
-const MarketType = require('./market');
-const PhotoType = require('./photo');
-const AtributeType = require('./atribute');
+const MarketType = require("./market");
+const PhotoType = require("./photo");
+const AtributeType = require("./atribute");
 
-const utils = require('../utils/index');
+const utils = require("../utils/index");
 
 const ProductType = new GraphQLObjectType({
-  name: 'product',
+  name: "product",
   fields:()=>({
     id:{
       type: GraphQLID
@@ -36,11 +36,11 @@ const ProductType = new GraphQLObjectType({
       type: MarketType,
       args: {
         id:{
-          name:'id',
+          name:"id",
           type:GraphQLID
         },
         name:{
-          name:'name',
+          name:"name",
           type: GraphQLString
         }
       },
@@ -54,11 +54,11 @@ const ProductType = new GraphQLObjectType({
       type: PhotoType,
       args: {
         id:{
-          name:'id',
+          name:"id",
           type:GraphQLID
         },
         name:{
-          name:'name',
+          name:"name",
           type: GraphQLString
         }
       },
@@ -72,11 +72,11 @@ const ProductType = new GraphQLObjectType({
       type: new GraphQLList(AtributeType),
       args: {
         id:{
-          name:'id',
+          name:"id",
           type:GraphQLID
         },
         name:{
-          name:'name',
+          name:"name",
           type: GraphQLString
         }
         },

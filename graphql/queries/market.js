@@ -4,24 +4,24 @@ const {
   GraphQLID
 } = require("graphql/type");
 
-const Market = require('../models/market');
-const MarketType = require('../types/market');
+const Market = require("../models/market");
+const MarketType = require("../types/market");
 
-const utils = require('../utils/index');
+const utils = require("../utils/index");
 
 const markets = {
   type: new GraphQLList(MarketType),
   args: {
     id:{
-      name:'id',
+      name:"id",
       type:GraphQLID
     },
     name:{
-      name:'name',
+      name:"name",
       type: GraphQLString
     },
     address:{
-      name:'address',
+      name:"address",
       type: GraphQLString
     }
   },

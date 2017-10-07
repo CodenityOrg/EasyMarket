@@ -1,7 +1,7 @@
-var mongoose = require('mongoose');
+const mongoose = require("mongoose");
 
-var Schema = mongoose.Schema;
-var userSchema = new Schema({
+const Schema = mongoose.Schema;
+const userSchema = new Schema({
     email: {type:String, unique:true},
     name: String,
     lastname: String,
@@ -10,4 +10,4 @@ var userSchema = new Schema({
     createdAt:{ type: Date, default: Date.now}
 });
 
-module.exports = mongoose.model('User',userSchema);
+module.exports = mongoose.model("User",userSchema);

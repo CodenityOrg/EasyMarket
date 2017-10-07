@@ -1,7 +1,7 @@
-var mongoose = require('mongoose');
+const mongoose = require("mongoose");
 // create a schema
-var Schema = mongoose.Schema;
-var toDoSchema = new Schema({
+const Schema = mongoose.Schema;
+const toDoSchema = new Schema({
     itemId: Number,
     item: String,
     category: String,
@@ -9,4 +9,4 @@ var toDoSchema = new Schema({
 });
 // we need to create a model using it
 // var ToDo = mongoose.model('ToDo', toDoSchema);
-module.exports = mongoose.model('ToDo',toDoSchema);
+module.exports = mongoose.model("ToDo",toDoSchema);

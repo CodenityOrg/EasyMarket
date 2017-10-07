@@ -9,10 +9,10 @@ const {
   GraphQLBoolean
 } = require("graphql/type");
 
-const Atribute = require('../models/atribute');
+const Atribute = require("../models/atribute");
 
 const AtributeType = new GraphQLObjectType({
-  name: 'atribute',
+  name: "atribute",
   fields:()=>({
     id:{
       type: GraphQLID

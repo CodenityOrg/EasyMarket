@@ -9,10 +9,10 @@ const {
   GraphQLBoolean
 } = require("graphql/type");
 
-const Market = require('../models/market');
+const Market = require("../models/market");
 
 const MarketType =  new GraphQLObjectType({
-  name: 'market',
+  name: "market",
   fields:()=>({
     id:{
       type: GraphQLID

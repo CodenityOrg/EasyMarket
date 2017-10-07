@@ -1,28 +1,23 @@
-<<<<<<< HEAD
-var express = require('express');
 
-var ToDo = require('../graphql/models/todo');
+const express = require("express");
 
-var Market = require('../graphql/models/market');
-var Atribute = require('../graphql/models/atribute');
-var Photo = require('../graphql/models/photo');
-var User = require('../graphql/models/user');
-var Product = require('../graphql/models/product');
+const ToDo = require("../graphql/models/todo");
 
-var router = express.Router();
-=======
-const express = require('express');
+const Market = require("../graphql/models/market");
+const Atribute = require("../graphql/models/atribute");
+const Photo = require("../graphql/models/photo");
+const User = require("../graphql/models/user");
+const Product = require("../graphql/models/product");
+
 const router = express.Router();
->>>>>>> 9d4aea7b6e20c9bfe764db074b0cdd1c7a96728e
 
-const userController = require('../controllers/userController');
+const userController = require("../controllers/userController");
 
-<<<<<<< HEAD
-router.get('/test',(req,res)=>{
- res.render('test');
+router.get("/test",(req,res)=>{
+ res.render("test");
 })
 
-router.post('/quotes',(req,res)=>{
+router.post("/quotes",(req,res)=>{
    // Insert into TodoList Collection
    var todoItem = new ToDo({
     itemId:req.body.id,
@@ -33,11 +28,11 @@ router.post('/quotes',(req,res)=>{
   todoItem.save((err,result)=> {
     if (err) {console.log("---TodoItem save failed " + err)}
       console.log("+++TodoItem saved successfully "+todoItem.item)
-      res.redirect('/test')
+      res.redirect("/test")
    })
 });
 
-router.post('/market',(req,res)=>{
+router.post("/market",(req,res)=>{
    var data = req.body;
    var newMarket = new Market({
     name:data.nameMarket,
@@ -46,11 +41,11 @@ router.post('/market',(req,res)=>{
   newMarket.save((err,result)=> {
     if (err) {console.log("---Market save failed " + err)}
       console.log("+++Market saved successfully "+newMarket.name)
-      res.redirect('/test')
+      res.redirect("/test")
    })
 });
 
-router.post('/atribute',(req,res)=>{
+router.post("/atribute",(req,res)=>{
    var data = req.body;
    var newAtribute = new Atribute({
     name:data.nameAtribute,
@@ -59,11 +54,11 @@ router.post('/atribute',(req,res)=>{
   newAtribute.save((err,result)=> {
     if (err) {console.log("---Atribute save failed " + err)}
       console.log("+++Atribute saved successfully "+newAtribute.name)
-      res.redirect('/test')
+      res.redirect("/test")
    })
 });
 
-router.post('/photo',(req,res)=>{
+router.post("/photo",(req,res)=>{
    var data = req.body;
    var newPhoto = new Photo({
     name:data.namePhoto,
@@ -74,11 +69,11 @@ router.post('/photo',(req,res)=>{
   newPhoto.save((err,result)=> {
     if (err) {console.log("---Photo save failed " + err)}
       console.log("+++Photo saved successfully "+newPhoto.name)
-      res.redirect('/test')
+      res.redirect("/test")
    })
 });
 
-router.post('/user',(req,res)=>{
+router.post("/user",(req,res)=>{
    var data = req.body;
    var newUser = new User({
     email:data.emailUser,
@@ -90,11 +85,11 @@ router.post('/user',(req,res)=>{
   newUser.save((err,result)=> {
     if (err) {console.log("---User save failed " + err)}
       console.log("+++User saved successfully "+newUser.name)
-      res.redirect('/test')
+      res.redirect("/test")
    })
 });
 
-router.post('/product',(req,res)=>{
+router.post("/product",(req,res)=>{
    var data = req.body;
    console.log(data);
    var newProduct = new Product({
@@ -107,11 +102,11 @@ router.post('/product',(req,res)=>{
   newProduct.save((err,result)=> {
     if (err) {console.log("---Product save failed " + err)}
       console.log("+++Product saved successfully "+newProduct.name)
-      res.redirect('/test')
+      res.redirect("/test")
    })
 });
 
-router.get('/product',(req,res)=>{
+router.get("/product",(req,res)=>{
   Product.find({})
   .exec(function (err,user) {
     if(err) return res.sendStatus(503);
@@ -120,15 +115,10 @@ router.get('/product',(req,res)=>{
 });
 
 
-
-module.exports = router;
-=======
-
 router.route('/')
   .get(userController.index);
 
-router.route('/login')  
+router.route("/login")
   .post(userController.SigIn);
-  
-module.exports = router
->>>>>>> 9d4aea7b6e20c9bfe764db074b0cdd1c7a96728e
+
+module.exports = router;

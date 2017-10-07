@@ -4,20 +4,20 @@ const {
   GraphQLID
 } = require("graphql/type");
 
-const Product = require('../models/product');
-const ProductType = require('../types/product');
+const Product = require("../models/product");
+const ProductType = require("../types/product");
 
-const utils = require('../utils/index');
+const utils = require("../utils/index");
 
 const products = {
   type: new GraphQLList(ProductType),
   args: {
     id:{
-      name:'id',
+      name:"id",
       type:GraphQLID
     },
     name:{
-      name:'name',
+      name:"name",
       type: GraphQLString
     },
     price:{

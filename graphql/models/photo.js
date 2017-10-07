@@ -1,7 +1,7 @@
-var mongoose = require('mongoose');
+const mongoose = require("mongoose");
 
-var Schema = mongoose.Schema;
-var photoSchema = new Schema({
+const Schema = mongoose.Schema;
+const photoSchema = new Schema({
     name: String,
     metadata:Object,
     thumbnail:String,
@@ -9,4 +9,4 @@ var photoSchema = new Schema({
     createdAt:{type:Date, default: new Date()}
 });
 
-module.exports = mongoose.model('Photo',photoSchema);
+module.exports = mongoose.model("Photo",photoSchema);

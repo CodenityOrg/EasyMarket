@@ -1,10 +1,10 @@
-var mongoose = require('mongoose');
+const mongoose = require("mongoose");
 
-var Schema = mongoose.Schema;
-var marketSchema = new Schema({
+const Schema = mongoose.Schema;
+const marketSchema = new Schema({
     name: String,
     address: String,
     createdAt:{ type: Date, default: Date.now}
 });
 
-module.exports = mongoose.model('Market',marketSchema);
+module.exports = mongoose.model("Market",marketSchema);

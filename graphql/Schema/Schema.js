@@ -9,9 +9,9 @@ const {
 } = require("graphql/type");
 
 
-const ToDoMongo = require('../../mongoose/todo');
-const User = require('../../mongoose/user');
-var exports = module.exports={};
+const ToDoMongo = require("../../mongoose/todo");
+const User = require("../../mongoose/user");
+const exports = module.exports={};
 module.exports.getProjection =function getProjection(fieldASTs) {
   return fieldASTs.fieldNodes[0].selectionSet.selections.reduce((projections, selection) => {
     projections[selection.name.value] = true;
@@ -28,43 +28,43 @@ function getProjection(fieldASTs) {
 
 
 var todoType = new GraphQLObjectType({
-  name: 'todo',
-  description: 'todo item',
+  name: "todo",
+  description: "todo item",
   fields: () => ({
     itemId: {
       type: (GraphQLInt),
-      description: 'The id of the todo.',
+      description: "The id of the todo.",
     },
     item: {
       type: GraphQLString,
-      description: 'The name of the todo.',
+      description: "The name of the todo.",
     },
     category: {
       type: GraphQLString,
-      description: 'The category of the todo.',
+      description: "The category of the todo.",
     },
     completed: {
       type: GraphQLBoolean,
-      description: 'Completed todo? '
+      description: "Completed todo? "
     }
   })
 });
 
 var userType = new GraphQLObjectType({
-  name: 'user',
-  description: 'user item',
+  name: "user",
+  description: "user item",
   fields: () => ({
     userId: {
       type: (GraphQLInt),
-      description: 'The id of the user.',
+      description: "The id of the user.",
     },
     name: {
       type: GraphQLString,
-      description: 'The name of the user.',
+      description: "The name of the user.",
     },
     age: {
       type: GraphQLInt,
-      description: 'The age of the user.',
+      description: "The age of the user.",
     },
     friends: {
       type: new GraphQlList(userType),
@@ -77,7 +77,7 @@ var userType = new GraphQLObjectType({
     },
     completed: {
       type: GraphQLBoolean,
-      description: 'Completed todo? '
+      description: "Completed todo? "
     }
   })
 });
@@ -85,13 +85,13 @@ var userType = new GraphQLObjectType({
 
 var schema = new GraphQLSchema({
   query: new GraphQLObjectType({
-    name: 'RootQueryType',
+    name: "RootQueryType",
     fields: {
       todo: {
         type: new GraphQLList(todoType),
         args: {
           itemId: {
-            name: 'itemId',
+            name: "itemId",
             type: new GraphQLNonNull(GraphQLInt)
           }
         },

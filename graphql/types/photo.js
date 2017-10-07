@@ -9,10 +9,10 @@ const {
   GraphQLBoolean
 } = require("graphql/type");
 
-const Photo = require('../models/photo');
+const Photo = require("../models/photo");
 
 const PhotoType = new GraphQLObjectType({
-  name: 'photo',
+  name: "photo",
   fields:()=>({
     id:{
       type: GraphQLID

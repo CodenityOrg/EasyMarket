@@ -4,20 +4,20 @@ const {
   GraphQLID
 } = require("graphql/type");
 
-const User = require('../models/user');
-const UserType = require('../types/user');
+const User = require("../models/user");
+const UserType = require("../types/user");
 
-const utils = require('../utils/index');
+const utils = require("../utils/index");
 
 const users = {
   type: new GraphQLList(UserType),
   args: {
     id:{
-      name:'id',
+      name:"id",
       type:GraphQLID
     },
     name:{
-      name:'name',
+      name:"name",
       type: GraphQLString
     }
   },

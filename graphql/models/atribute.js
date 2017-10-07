@@ -1,10 +1,10 @@
-var mongoose = require('mongoose');
+const mongoose = require("mongoose");
 
-var Schema = mongoose.Schema;
-var atributeSchema = new Schema({
+const Schema = mongoose.Schema;
+const atributeSchema = new Schema({
     name: String,
     value: String,
     createdAt:{ type: Date, default: Date.now}
 });
 
-module.exports = mongoose.model('Atribute',atributeSchema);
+module.exports = mongoose.model("Atribute",atributeSchema);

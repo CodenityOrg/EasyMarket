@@ -4,20 +4,20 @@ const {
   GraphQLID
 } = require("graphql/type");
 
-const Photo = require('../models/photo');
-const PhotoType = require('../types/photo');
+const Photo = require("../models/photo");
+const PhotoType = require("../types/photo");
 
-const utils = require('../utils/index');
+const utils = require("../utils/index");
 
 const photos = {
   type: new GraphQLList(PhotoType),
   args: {
     id:{
-      name:'id',
+      name:"id",
       type:GraphQLID
     },
     name:{
-      name:'name',
+      name:"name",
       type: GraphQLString
     }
   },
