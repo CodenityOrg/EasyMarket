@@ -8,14 +8,14 @@ const config = {
   entry: `${APP_DIR}/index.jsx`,
   output: {
     path: BUILD_DIR,
-    filename: 'bundle.js'
+    filename: "bundle/index.js"
   },
   module : {
     loaders : [
       {
         test : /\.jsx?/,
         include : APP_DIR,
-        loader : 'babel-loader'
+        loader : "babel-loader"
       }
     ]
   }
