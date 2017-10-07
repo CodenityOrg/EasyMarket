@@ -46,6 +46,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', index);
 app.use('/users', users);
+app.all("*", (req, res, next) => res.sendFile(path.join(__dirname, "public", "index.html")));
 
 app.use('/graphql', graphqlHTTP (req => ({
   schema:schemas,
