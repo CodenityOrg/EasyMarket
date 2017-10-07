@@ -25,7 +25,7 @@ html(lang='en')
       input(type='text', placeholder='addressMarket', name='addressMarket')
       button(type='submit') Submit
     hr
-      
+
     h2 This is just a normal POST to photo
     div Enter a new market in the text box and hit Submit to save it to the database
     form(action='/photo', method='POST')
@@ -35,7 +35,7 @@ html(lang='en')
       input(type='text', placeholder='urlPhoto', name='urlPhoto')
       button(type='submit') Submit
     hr
-      
+
     h2 This is just a normal POST to atribute
     div Enter a new market in the text box and hit Submit to save it to the database
     form(action='/atribute', method='POST')
@@ -43,7 +43,7 @@ html(lang='en')
       input(type='text', placeholder='valueAtribute', name='valueAtribute')
       button(type='submit') Submit
     hr
-  
+
     h2 This is just a normal POST to user
     div Enter a new market in the text box and hit Submit to save it to the database
     form(action='/user', method='POST')
@@ -54,7 +54,7 @@ html(lang='en')
       input(type='text', placeholder='cellphoneUser', name='cellphoneUser')
       button(type='submit') Submit
     hr
-    
+
     h2 This is just a normal POST to product
     div Enter a new market in the text box and hit Submit to save it to the database
     form(action='/product', method='POST')
@@ -62,11 +62,11 @@ html(lang='en')
       input(type='text', placeholder='priceProduct', name='priceProduct')
       input(type='text', placeholder='photoProduct', name='photoProduct')
       input(type='text', placeholder='marketIdProduct', name='marketIdProduct')
-      input(type='text', placeholder='atributesProduct', name='atributesProduct[]')  
+      input(type='text', placeholder='atributesProduct', name='atributesProduct')  
       button(type='submit') Submit
     hr
-      
+
     h2 GraphQL Test
     hr
     div
-      a(href='/graphql?query={market(itemId:1){itemId,item}}') GraphQL Test    
+      a(href='/graphql?query={market(itemId:1){itemId,item}}') GraphQL Test

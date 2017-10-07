@@ -93,6 +93,7 @@ router.post('/user',(req,res)=>{
 
 router.post('/product',(req,res)=>{
    var data = req.body;
+   console.log(data);
    var newProduct = new Product({
     name:data.nameProduct,
     price:[data.priceProduct],

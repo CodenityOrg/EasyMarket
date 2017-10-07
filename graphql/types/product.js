@@ -79,7 +79,7 @@ const ProductType = new GraphQLObjectType({
           name:'name',
           type: GraphQLString
         }
-      },
+        },
       resolve: (product) => {
 				return Atribute.find({
 					_id: {
