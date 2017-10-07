@@ -1,17 +1,4 @@
-<<<<<<< HEAD
-var express = require('express');
-var path = require('path');
-var favicon = require('serve-favicon');
-var logger = require('morgan');
-var cookieParser = require('cookie-parser');
-var bodyParser = require('body-parser');
-var mongoose = require('mongoose');
-var graphqlHTTP = require('express-graphql');
-var schemas = require('./graphql/schema');
 
-var index = require('./routes/index');
-var users = require('./routes/users');
-=======
 const express = require('express');
 const path = require('path');
 const favicon = require('serve-favicon');
@@ -19,6 +6,8 @@ const logger = require('morgan');
 const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
+const graphqlHTTP = require('express-graphql');
+const schemas = require('./graphql/schema');
 const index = require('./routes/index');
 const users = require('./routes/users');
 
@@ -29,7 +18,6 @@ const app = express();
 mongoose.connect(url_db,function(err){
   console.log("connect db")
 });
->>>>>>> 9d4aea7b6e20c9bfe764db074b0cdd1c7a96728e
 
 
 mongoose.Promise = global.Promise;
