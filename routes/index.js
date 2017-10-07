@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 var express = require('express');
 
 var ToDo = require('../graphql/models/todo');
@@ -9,12 +10,14 @@ var User = require('../graphql/models/user');
 var Product = require('../graphql/models/product');
 
 var router = express.Router();
+=======
+const express = require('express');
+const router = express.Router();
+>>>>>>> 9d4aea7b6e20c9bfe764db074b0cdd1c7a96728e
 
-/* GET home page. */
-router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
-});
+const userController = require('../controllers/userController');
 
+<<<<<<< HEAD
 router.get('/test',(req,res)=>{
  res.render('test');
 })
@@ -119,3 +122,13 @@ router.get('/product',(req,res)=>{
 
 
 module.exports = router;
+=======
+
+router.route('/')
+  .get(userController.index);
+
+router.route('/login')  
+  .post(userController.SigIn);
+  
+module.exports = router
+>>>>>>> 9d4aea7b6e20c9bfe764db074b0cdd1c7a96728e

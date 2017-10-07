@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 var express = require('express');
 var path = require('path');
 var favicon = require('serve-favicon');
@@ -10,8 +11,26 @@ var schemas = require('./graphql/schema');
 
 var index = require('./routes/index');
 var users = require('./routes/users');
+=======
+const express = require('express');
+const path = require('path');
+const favicon = require('serve-favicon');
+const logger = require('morgan');
+const cookieParser = require('cookie-parser');
+const bodyParser = require('body-parser');
+const mongoose = require('mongoose');
+const index = require('./routes/index');
+const users = require('./routes/users');
 
-var app = express();
+const  url_db = process.env.mongodb || "mongodb://localhost/easymarket";
+
+const app = express();
+
+mongoose.connect(url_db,function(err){
+  console.log("connect db")
+});
+>>>>>>> 9d4aea7b6e20c9bfe764db074b0cdd1c7a96728e
+
 
 mongoose.Promise = global.Promise;
 
@@ -47,7 +66,7 @@ app.use('/graphql', graphqlHTTP (req => ({
 })))
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
-  var err = new Error('Not Found');
+  const err = new Error('Not Found');
   err.status = 404;
   next(err);
 });
