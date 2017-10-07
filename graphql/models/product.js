@@ -3,7 +3,7 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 var productSchema = new Schema({
     name: String,
-    price: String,
+    price: [String],
     marketId:{ref:'Market',type:Schema.Types.ObjectId},
     atributes :[{ref:'Atribute',type:Schema.Types.ObjectId}],
     photo :{ref:'Photo',type:Schema.Types.ObjectId},

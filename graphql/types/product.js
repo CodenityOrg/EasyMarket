@@ -30,7 +30,7 @@ const ProductType = new GraphQLObjectType({
       type: GraphQLString
     },
     price:{
-      type: GraphQLList(GraphQLString)
+      type: new GraphQLList(GraphQLString)
     },
     marketId:{
       type: MarketType,
@@ -44,10 +44,11 @@ const ProductType = new GraphQLObjectType({
           type: GraphQLString
         }
       },
-      resolve: (product)=>{
-        let filters = utils.processArgsInCollection(product.market,args);
-        return Market.find(filters);
-      }
+      resolve: (product) => {
+				return Market.findOne({
+					_id: product.marketId.toString()
+				});
+			}
     },
     photo:{
       type: PhotoType,
@@ -61,13 +62,14 @@ const ProductType = new GraphQLObjectType({
           type: GraphQLString
         }
       },
-      resolve: (product)=>{
-        let filters = utils.processArgsInCollection(product.photo,args);
-        return Photo.find(filters);
-      }
+      resolve: (product) => {
+				return Photo.findOne({
+					_id: product.photo.toString()
+				});
+			}
     },
     atributes:{
-      type: GraphQLList(AtributeType),
+      type: new GraphQLList(AtributeType),
       args: {
         id:{
           name:'id',
@@ -78,10 +80,17 @@ const ProductType = new GraphQLObjectType({
           type: GraphQLString
         }
       },
-      resolve: (product)=>{
-        let filters = utils.processArgsInCollection(product.photo,args);
-        return Atribute.find(filters);
-      }
+      resolve: (product) => {
+				return Atribute.find({
+					_id: {
+            $in: product.atributes.map((id) => id.toString())
+          }
+				});
+			}
+      // resolve: (product,args,root,asts)=>{
+      //   let filters = utils.processArgsInCollection(product.atributes,args);
+      //   return Atribute.find(filters);
+      // }
     }
   })
 });

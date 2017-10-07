@@ -19,6 +19,9 @@ const products = {
     name:{
       name:'name',
       type: GraphQLString
+    },
+    price:{
+      type: new GraphQLList(GraphQLString)
     }
   },
   resolve: (source, args, root, ast)=>{

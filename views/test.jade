@@ -17,7 +17,56 @@ html(lang='en')
       input(type='text', placeholder='category', name='category')
       button(type='submit') Submit
     hr
+
+    h2 This is just a normal POST to market
+    div Enter a new market in the text box and hit Submit to save it to the database
+    form(action='/market', method='POST')
+      input(type='text', placeholder='nameMarket', name='nameMarket')
+      input(type='text', placeholder='addressMarket', name='addressMarket')
+      button(type='submit') Submit
+    hr
+      
+    h2 This is just a normal POST to photo
+    div Enter a new market in the text box and hit Submit to save it to the database
+    form(action='/photo', method='POST')
+      input(type='text', placeholder='namePhoto', name='namePhoto')
+      input(type='text', placeholder='metadataPhoto', name='metadataPhoto')
+      input(type='text', placeholder='thumbnailPhoto', name='thumbnailPhoto')
+      input(type='text', placeholder='urlPhoto', name='urlPhoto')
+      button(type='submit') Submit
+    hr
+      
+    h2 This is just a normal POST to atribute
+    div Enter a new market in the text box and hit Submit to save it to the database
+    form(action='/atribute', method='POST')
+      input(type='text', placeholder='nameAtribute', name='nameAtribute')
+      input(type='text', placeholder='valueAtribute', name='valueAtribute')
+      button(type='submit') Submit
+    hr
+  
+    h2 This is just a normal POST to user
+    div Enter a new market in the text box and hit Submit to save it to the database
+    form(action='/user', method='POST')
+      input(type='text', placeholder='nameUser', name='nameUser')
+      input(type='text', placeholder='lastnameUser', name='lastnameUser')
+      input(type='text', placeholder='emailUser', name='emailUser')
+      input(type='text', placeholder='cityUser', name='cityUser')
+      input(type='text', placeholder='cellphoneUser', name='cellphoneUser')
+      button(type='submit') Submit
+    hr
+    
+    h2 This is just a normal POST to product
+    div Enter a new market in the text box and hit Submit to save it to the database
+    form(action='/product', method='POST')
+      input(type='text', placeholder='nameProduct', name='nameProduct')
+      input(type='text', placeholder='priceProduct', name='priceProduct')
+      input(type='text', placeholder='photoProduct', name='photoProduct')
+      input(type='text', placeholder='marketIdProduct', name='marketIdProduct')
+      input(type='text', placeholder='atributesProduct', name='atributesProduct[]')  
+      button(type='submit') Submit
+    hr
+      
     h2 GraphQL Test
     hr
     div
-      a(href='/graphql?query={todo(itemId:1){itemId,item}}') GraphQL Test
+      a(href='/graphql?query={market(itemId:1){itemId,item}}') GraphQL Test    

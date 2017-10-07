@@ -19,6 +19,10 @@ const markets = {
     name:{
       name:'name',
       type: GraphQLString
+    },
+    address:{
+      name:'address',
+      type: GraphQLString
     }
   },
   resolve: (source, args, root, ast)=>{
