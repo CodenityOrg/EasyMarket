@@ -14,12 +14,6 @@ const  url_db = process.env.mongodb || "mongodb://localhost/easymarket";
 
 const app = express();
 
-const options = {
-  promiseLibrary: global.Promise,
-  useMongoClient: true,
-};
-
-
 mongoose.connect(url_db,function(err){
   console.log("connect db")
 });
@@ -27,7 +21,7 @@ mongoose.connect(url_db,function(err){
 
 mongoose.Promise = global.Promise;
 
-mongoose.connect('mongodb://localhost:27017/EasyMarket',{ useMongoClient: true });
+mongoose.connect('mongodb://localhost:27017/EasyMarket');
 
 
 var db = mongoose.connection;
