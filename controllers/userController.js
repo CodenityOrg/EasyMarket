@@ -1,13 +1,13 @@
-const User = require('../models/user');
+const User = require('../graphql/models/user');
 
 module.exports.index =  (req,res) => {
-	res.render('index',{title:"JULIO"})
+	res.render('index',{title:"test"})
 }
 
 module.exports.SigIn = (req,res) => {
-    User.findOne({ 
+    User.findOne({
         email:req.body.email,
-        password:req.body.password 
+        password:req.body.password
     },(err,user) => {
         if (err) throw err;
         res.send(user);
@@ -26,9 +26,6 @@ module.exports.create = (req,res) => {
         createdAt:req.body.createdAt
     }, (err, user) => {
         if(err) throw err;
-        res.send(user);        
+        res.send(user);
     });
-
-
-	
 }
