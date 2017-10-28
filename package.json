@@ -17,12 +17,9 @@
     "cookie-parser": "~1.4.3",
     "debug": "~2.6.3",
     "express": "~4.15.2",
-<<<<<<< HEAD
     "express-graphql": "^0.6.11",
     "graphql": "^0.11.3",
-=======
     "install": "^0.10.1",
->>>>>>> 9d4aea7b6e20c9bfe764db074b0cdd1c7a96728e
     "jade": "~1.11.0",
     "mongoose": "^4.11.12",
     "morgan": "~1.8.1",
