@@ -1,4 +1,4 @@
-const User = require("../models/user");
+const User = require("../graphql/models/user");
 
 module.exports.index =  (req,res) => {
     res.render("index");
@@ -30,6 +30,6 @@ module.exports.create = (req,res) => {
         createdAt
     }, (err, user) => {
         if(err) throw err;
-        res.send(user);        
+        res.send(user);
     });
 }

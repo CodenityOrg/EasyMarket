@@ -1,16 +1,16 @@
 'use strict'
 
-const User = require("../models/user.js");
+const User = require("../graphql/models/user.js");
 const chai = require("chai");
 const chaiHttp = require("chai-http");
 const server = require("../app.js");
 const should = chai.should();
-const fs = require("fs"); 
+const fs = require("fs");
 
 chai.use(chaiHttp);
 
 describe("User",()=>{
-    
+
    before((done)=>{
         done();
     })
@@ -56,12 +56,12 @@ describe("User",()=>{
             });
 
             user.save((err)=>{
-                
+
                 let data = {
                     email: "user1@gmail.com",
                     password: "123456"
                 };
-            
+
                 chai.request(server)
                 .post("/login")
                 .send(data)
@@ -69,13 +69,13 @@ describe("User",()=>{
                     res.should.have.status(200)
                     res.should.be.a("object");
                     res.body.should.have.property("name");
-                    res.body.should.have.property("lastname");  
+                    res.body.should.have.property("lastname");
                     done();
                 })
             })
 
         })
-     
+
     })
-    
+
 })
