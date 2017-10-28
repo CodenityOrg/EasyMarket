@@ -10,7 +10,7 @@ const schemas = require('./graphql/schema');
 const index = require('./routes/index');
 const users = require('./routes/users');
 
-const  url_db = process.env.mongodb || "mongodb://localhost/easymarket";
+const url_db = process.env.mongodb || "mongodb://localhost/easymarket";
 
 const app = express();
 
