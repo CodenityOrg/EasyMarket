@@ -1,15 +1,18 @@
 const User = require("../models/user");
 
 module.exports.index =  (req,res) => {
-	res.render("index")
+    res.render("index");
 }
 
 module.exports.SignIn = (req,res) => {
+    const { email, password } = req.body;
     User.findOne({ 
-        email: req.body.email,
-        password: req.body.password 
+        email,
+        password
     }, (err,user) => {
-        if (err) throw err;
+        if (err) { 
+            throw err;
+        }
         res.send(user);
     });
 }

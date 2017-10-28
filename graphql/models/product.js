@@ -4,7 +4,7 @@ const Schema = mongoose.Schema;
 const productSchema = new Schema({
     name: String,
     price: [Number],
-    marketId:{ref:"Market",type:Schema.Types.ObjectId},
+    marketId: { ref:"Market", type:Schema.Types.ObjectId },
     atributes :[{ref:"Atribute",type:Schema.Types.ObjectId}],
     photo :{ref:"Photo",type:Schema.Types.ObjectId},
     updatedAt:{ type: Date, default: Date.now},
