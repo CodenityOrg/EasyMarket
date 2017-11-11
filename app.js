@@ -51,6 +51,8 @@ app.use('/graphql', graphqlHTTP (req => ({
   rootValue:global,
   graphiql:true
 })))
+
+app.all("*", (req, res, next) => res.sendFile(path.join(__dirname, "public", "index.html")));
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   const err = new Error('Not Found');

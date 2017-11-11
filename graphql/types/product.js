@@ -22,7 +22,7 @@ const utils = require("../utils/index");
 
 const ProductType = new GraphQLObjectType({
   name: "product",
-  fields:()=>({
+  fields: () => ({
     id:{
       type: GraphQLID
     },
