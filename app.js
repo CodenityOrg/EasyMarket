@@ -1,4 +1,3 @@
-
 const express = require('express');
 const path = require('path');
 const favicon = require('serve-favicon');
@@ -11,7 +10,7 @@ const schemas = require('./graphql/schema');
 const index = require('./routes/index');
 const users = require('./routes/users');
 
-const  url_db = process.env.mongodb || "mongodb://localhost/easymarket";
+const url_db = process.env.mongodb || "mongodb://localhost/easymarket";
 
 const app = express();
 
@@ -46,7 +45,6 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', index);
 app.use('/users', users);
-app.all("*", (req, res, next) => res.sendFile(path.join(__dirname, "public", "index.html")));
 
 app.use('/graphql', graphqlHTTP (req => ({
   schema:schemas,

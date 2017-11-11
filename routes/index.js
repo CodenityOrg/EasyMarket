@@ -119,6 +119,6 @@ router.route('/')
   .get(userController.index);
 
 router.route("/login")
-  .post(userController.SigIn);
+  .post(userController.SignIn);
 
 module.exports = router;

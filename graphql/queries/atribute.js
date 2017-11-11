@@ -14,7 +14,7 @@ const atributes = {
   args: {
     id:{
       name:"id",
-      type:GraphQLID
+      type: GraphQLID
     },
     name:{
       name:"name",
