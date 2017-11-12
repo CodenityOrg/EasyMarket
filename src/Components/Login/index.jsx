@@ -9,25 +9,32 @@ export default class Login extends React.Component {
             email: "",
             password: ""
         };
+        this.emailChange = this.emailChange.bind(this);
+        this.passwordChange = this.passwordChange.bind(this);
+        this.submit = this.submit.bind(this);
     }
-    change(){
-
+    emailChange(e){
+        this.setState({email: e.target.value});
+    }
+    passwordChange(e){
+        this.setState({password: e.target.value});
     }
     render(){
         return (
-            <form method="POST" onSubmit={this.submit.bind(this)}>
+            <form onSubmit={this.submit}>
                 <label htmlFor="email">Usuario<br/></label>
-                <input type="email" name="email" autoFocus value={this.state.email}/><br/>
+                <input type="email" name="email" autoFocus onChange={this.emailChange} value={this.state.email}/><br/>
                 <label htmlFor="password">Pasword<br/> </label>
-                <input type="password" pattern=".{4,}" name="password" value={this.state.password}/>
+                <input type="password" pattern=".{4,}" name="password" onChange={this.passwordChange} value={this.state.password}/>
                 <div>
-                    <button type="submit">Ingresar</button>
+                    <button type="submit" value="submit">Ingresar</button>
                 </div>
             </form>
         )
     }
-    submit(){
-        console.log();
+    submit(e){
+        e.preventDefault();
+        console.log("el email es: " + this.state.email);
         console.log("HOLA");
     }
 }
