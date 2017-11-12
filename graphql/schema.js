@@ -18,13 +18,13 @@ const {
      markets:MarketQuery,
      users:UserQuery,
      products:ProductQuery
-   })
+   }),
  });
  const mutation = new GraphQLObjectType({
    name: 'Mutation',
    fields:()=>({
      createMarket:MarketMutation.createMarket
-   })
+   }),
  });
 
  module.exports = new   GraphQLSchema({
