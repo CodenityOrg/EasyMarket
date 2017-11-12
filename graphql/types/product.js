@@ -14,7 +14,7 @@ const Market = require("../models/market");
 const Photo = require("../models/photo");
 const Atribute = require("../models/atribute");
 
-const MarketType = require("./market");
+const MarketType = require("./market").MarketType;
 const PhotoType = require("./photo");
 const AtributeType = require("./atribute");
 

@@ -23,7 +23,7 @@ const {
  const mutation = new GraphQLObjectType({
    name: 'Mutation',
    fields:()=>({
-     markets:MarketMutation
+     createMarket:MarketMutation.createMarket
    })
  });
 

@@ -1,5 +1,6 @@
 const {
   GraphQLObjectType,
+  GraphQLInputObjectType,
   GraphQLNonNull,
   GraphQLSchema,
   GraphQLString,
@@ -26,4 +27,19 @@ const MarketType =  new GraphQLObjectType({
   })
 });
 
-module.exports = MarketType;
+const MarketInputType =  new GraphQLInputObjectType({
+  name: "marketInput",
+  fields:()=>({
+    name:{
+      type: GraphQLString
+    },
+    address:{
+        type: GraphQLString
+    }
+  })
+});
+
+module.exports = {
+  "MarketType": MarketType,
+  "MarketInputType": MarketInputType
+};

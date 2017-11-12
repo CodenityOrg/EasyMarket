@@ -45,6 +45,14 @@ router.post("/market",(req,res)=>{
    })
 });
 
+router.get("/markets",(req,res)=>{
+  Market.find({})
+  .exec(function (err, market) {
+    if (err) return handleError(err);
+    return res.json(market);
+  });
+});
+
 router.post("/atribute",(req,res)=>{
    var data = req.body;
    var newAtribute = new Atribute({

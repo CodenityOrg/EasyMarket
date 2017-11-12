@@ -5,7 +5,8 @@ const {
 } = require("graphql/type");
 
 const Market = require("../models/market");
-const MarketType = require("../types/market");
+const MarketType = require("../types/market").MarketType;
+const MarketInputType = require("../types/market").MarketInputType;
 
 const utils = require("../utils/index");
 

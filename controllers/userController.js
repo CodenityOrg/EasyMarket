@@ -4,7 +4,7 @@ module.exports.index =  (req,res) => {
 	res.render('index',{title:"test"})
 }
 
-module.exports.SigIn = (req,res	) => {
+module.exports.SignIn = (req,res	) => {
     User.findOne({
         email:req.body.email,
         password:req.body.password
