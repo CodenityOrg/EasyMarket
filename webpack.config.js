@@ -9,7 +9,7 @@ const config = {
   entry: [`${APP_DIR}/index.jsx`, `${APP_DIR}/main.scss`],
   output: {
     path: BUILD_DIR,
-    filename: 'bundle.js'
+    filename: "bundle/index.js"
   },
   module : {
     loaders : [
