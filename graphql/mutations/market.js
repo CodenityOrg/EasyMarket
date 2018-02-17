@@ -29,22 +29,18 @@ const utils = require("../utils/index");
 // };
 //
 
-const marketMutations = {
-  createMarket: {
+module.exports = {
+  create: {
     type: MarketType,
     args: {
       input: {
         type: MarketInputType,
       },
     },
-    resolve: (rootValue, { input }) => {
-      return Market.create({
-        name:market.name,
-        address:market.address
-      });
+    resolve: async (rootValue, { input }) => {
+      const newMarket = await new Market(input).save();
+      newMarket._id = newMarket._id.toString();
+      return newMarket;
     },
   },
 };
-
-
-module.exports = marketMutations;
